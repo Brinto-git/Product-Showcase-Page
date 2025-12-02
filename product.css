@@ -1,0 +1,327 @@
+/* product.css */
+
+:root {
+    --primary-color: #ff5722; /* উজ্জ্বল কমলা */
+    --secondary-color: #333;
+    --bg-dark: #212121;
+    --text-light: #f4f4f4;
+    --padding-section: 80px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--secondary-color);
+}
+
+/* Header/Nav: Fixed Position */
+.main-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.main-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 8px 15px;
+    transition: background-color 0.3s;
+}
+
+.main-nav a:hover, .cta-nav-btn {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+.cta-nav-btn {
+    margin-left: 10px;
+}
+
+
+/* Hero Section: Parallax Effect */
+.hero-showcase {
+    /* 1. ব্যাকগ্রাউন্ড ছবি সেট করা (একটি টেকনোলজি রিলেটেড ছবি) */
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    
+    /* 2. ছবিটি স্ক্রিন জুড়ে ফিট করা */
+    background-size: cover;
+    background-position: center;
+    
+    /* 3. প্যারাল্যাক্স ম্যাজিক! (ছবিটি স্ক্রলের সাথে নড়বে না) */
+    background-attachment:  fixed;
+    
+    /* 4. লেআউট এবং সাইজ */
+    height:  100vh; /* পুরো স্ক্রিন জুড়ে */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+/* হিরো সেকশনের টেক্সট স্টাইল */
+.hero-showcase h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* টেক্সট শ্যাডো */
+}
+
+.hero-showcase p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+/* CTA Button Style */
+.cta-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e64a19; /* একটু গাঢ় কমলা */
+    transform: scale(1.1); /* মাউস নিলে বড় হবে */
+}
+
+/* Features Grid Section */
+.features-grid-section {
+    padding: var(--padding-section) 5%;
+    background-color: var(--text-light); /* হালকা ব্যাকগ্রাউন্ড */
+    text-align: center;
+}
+
+.features-grid-section h2 {
+    font-size: 2.5em;
+    margin-bottom: var(--spacing-medium);
+    color: var(--primary-color);
+}
+
+.features-container {
+    display: grid;
+    /* 2টি কলাম তৈরি করা হলো, প্রত্যেকে সমান জায়গা নেবে */
+    grid-template-columns: repeat(2, 1fr); 
+    cursor: pointer;
+    
+    /* কলাম এবং সারির মাঝে ফাঁকা জায়গা (Gap) */
+    gap: 30px; 
+    
+    max-width: 1000px; /* গ্রিডের সর্বোচ্চ চওড়া */
+    margin: 0 auto; /* গ্রিডটিকে মাঝখানে আনা হলো */
+    margin-top: 40px;
+}
+
+.feature-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    /* Transition & Transform */
+    transition: transform 0.3s ease;
+}
+
+.feature-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.feature-item:hover {
+    /* মাউস গেলে সামান্য উপরে উঠবে এবং ছোট হবে */
+    transform: scale(0.98); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Gallery Section */
+.product-gallery {
+    padding: var(--padding-section) 0; /* বাম-ডানে কোনো প্যাডিং নেই */
+    background-color: white;
+    text-align: center;
+}
+
+.product-gallery h2 {
+    font-size: 2.5em;
+    margin-bottom: var(--spacing-medium);
+    color: var(--secondary-color);
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: center; /* ছবিগুলোকে মাঝখানে রাখতে */
+    flex-wrap: wrap; /* ছোট স্ক্রিনে ছবিগুলো নিচে নেমে যাবে */
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.gallery-item {
+    width: 280px;
+    height: 200px;
+    background-color: var(--bg-dark);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    border-radius: 8px;
+    
+    /* লেয়ারিং এর জন্য প্রস্তুত: এটি অন্যান্য আইটেমের সাপেক্ষে সরে যাবে না */
+    position: relative; 
+    
+    transition: transform 0.4s ease, z-index 0s 0.4s; 
+}
+
+.gallery-item:hover {
+    transform: scale(1.1); /* মাউস গেলে বড় হবে */
+    z-index: 10; /* অন্যান্য আইটেমের উপরে থাকবে */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 01.4);
+    transition: transform 0.4s ease, z-index 0s; 
+}
+
+/* CTA Banner Section */
+.cta-banner {
+    padding: var(--padding-section) 5%;
+    text-align: center;
+    background-color: var(--primary-color); /* উজ্জ্বল কমলা ব্যাকগ্রাউন্ড */
+    color: white;
+}
+
+.cta-banner h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+/* Inverted Color CTA Button (নতুন ক্লাসের স্টাইল) */
+.cta-invert-color {
+    background-color: white; /* সাদা ব্যাকগ্রাউন্ড */
+    color: var(--primary-color); /* কমলারঙের টেক্সট */
+}
+.cta-invert-color:hover {
+    background-color: var(--text-light);
+    transform: scale(1.05);
+}
+
+/* Contact Form Styling (আগের প্রজেক্টের মতোই, কিন্তু থিমড) */
+.contact-section {
+    padding: var(--padding-section) 5%;
+    background-color: var(--bg-dark); /* গাঢ় ব্যাকগ্রাউন্ড */
+    color: var(--text-light); /* হালকা টেক্সট */
+    text-align: center;
+}
+
+.contact-section h2 {
+    color: var(--primary-color); 
+    margin-bottom: var(--spacing-medium);
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px; 
+    margin: 20px auto;
+}
+
+.contact-section input,
+.contact-section textarea {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none; 
+    border-radius: 5px;
+    font-size: 1em;
+}
+.contact-section button {
+    background-color: var(--primary-color);
+    color: white;
+    width: 150px;
+    margin: 0 auto;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; 
+}
+.contact-section button:hover {
+    background-color: #e64a19;
+    transform: scale(1.05);
+}
+
+/* Footer Styling */
+.main-footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+
+
+/* Media Queries: যখন স্ক্রিনের সর্বোচ্চ চওড়া 768px বা তার কম হবে */
+@media screen and (max-width: 768px) {
+    
+    /* Global Adjustments */
+    :root {
+        --padding-section: 40px; 
+    }
+    
+    /* Header: ফিক্সড হেডারকে ছোট স্ক্রিনের জন্য ঠিক করা */
+    .main-header {
+        flex-direction: column; /* উপর-নিচ সাজানো */
+        padding: 10px 5%;
+    }
+    .main-nav {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around; /* মেনু আইটেমগুলোর মাঝে সমান ফাঁকা জায়গা */
+    }
+    .logo {
+        text-align: center;
+        width: 100%;
+    }
+    .cta-nav-btn {
+        margin-left: 0;
+    }
+
+    /* Hero Section: ফন্ট সাইজ ছোট করা */
+    .hero-showcase h1 {
+        font-size: 2.2em; 
+    }
+    .hero-showcase p {
+        font-size: 1.2em;
+    }
+
+    /* Features Grid: 2 কলাম থেকে 1 কলামে পরিবর্তন */
+    .features-container {
+        grid-template-columns: 1fr; 
+    }
+    
+    /* Gallery: ছোট স্ক্রিনে আইটেমগুলো পুরো চওড়া নেবে */
+    .gallery-item {
+        width: 90%; 
+        margin: 10px auto;
+    }
+}
